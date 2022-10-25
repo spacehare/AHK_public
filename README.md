@@ -35,7 +35,7 @@ as the script is right now, here's what they do
 - alt C	... compile
   - as it is, you must set the compile menu hotkey to F12 in TrenchBroom
 - alt L	... launch
-  - type an integer (corresponding to the engine) after hitting the hotkey
+  - type an integer (corresponding to the engine order) after hitting the hotkey
   - as it is, you must set the launch menu hotkey to F11 in TrenchBroom
 - alt 1	... launch first engine
 - alt 2	... launch second engine
