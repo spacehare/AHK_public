@@ -18,7 +18,7 @@ as the script is right now, here's what they do
 - mouse 4	... double left click
 - numpad 3 ... shift click
 
-**Makkon {techdc - write a word, and then optionally paste it**
+**Makkon {techdc - write a word or words (within the limits of the texture's available characters), and then optionally paste it**
 - alt t	... paste	- large
 - ctrl alt t ... no paste - large
 - shift alt t	... paste	- small
