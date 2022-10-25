@@ -42,10 +42,10 @@ as the script is right now, here's what they do
 - alt 0	 ... open TrenchBroom preferences in Notepad++, falling back to Notepad
 - win End	... exit script
 
-https://www.autohotkey.com/docs
-https://www.autohotkey.com/docs/Hotkeys.htm
-https://www.autohotkey.com/docs/KeyList.htm
+https://www.autohotkey.com/docs  
+https://www.autohotkey.com/docs/Hotkeys.htm  
+https://www.autohotkey.com/docs/KeyList.htm  
 
-also there are some hotkeys in here that i used for testing in-game skips
-they're commented within the script -- right now they're just grenade jumps and rocket jumps
+also there are some hotkeys in here that i used for testing in-game skips  
+they're commented within the script -- right now they're just grenade jumps and rocket jumps  
 any actual debug commands are stored in my autoexec (see here for )
