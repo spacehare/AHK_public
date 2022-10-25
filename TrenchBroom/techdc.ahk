@@ -169,7 +169,7 @@ Class techdc {
 		brushGroup .= "}"
 		clipboard := brushGroup
 		ClipWait
-		SoundPlay, ..\sfx\combine_button1.wav
+		; SoundPlay, ..\sfx\combine_button1.wav
 		if paste
 			SendInput, ^v
 	}
