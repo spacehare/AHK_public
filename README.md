@@ -49,4 +49,4 @@ https://www.autohotkey.com/docs/KeyList.htm
 
 also there are some hotkeys in here that i used for testing in-game skips  
 they're commented within the script -- right now they're just grenade jumps and rocket jumps  
-any actual debug commands are stored in my autoexec (see here for )
+any actual debug commands are stored in my autoexec
