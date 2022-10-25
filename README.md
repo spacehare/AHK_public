@@ -11,7 +11,8 @@ if you want to use these and have no clue how:
 ### TrenchBroom
 how to use
 1. install https://www.autohotkey.com/
-2. boot TrenchBroom.ahk while TrenchBroom is open
+2. on this page, click 'Code' then 'Download ZIP'
+3. boot TrenchBroom.ahk while TrenchBroom is open
 
 read the links below if you want to edit the hotkeys, but
 as the script is right now, here's what they do
