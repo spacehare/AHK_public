@@ -1,0 +1,6 @@
+{
+"classname" "path_corner"
+"origin" "0 0 0"
+"targetname" "pc_0"
+"target" "pc_1"
+}

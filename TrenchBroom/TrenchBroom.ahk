@@ -1,5 +1,6 @@
 #Include ../general/utility.ahk
 #Include techdc.ahk
+#include pathcorner.ahk
 
 #NoEnv
 #SingleInstance, Force
@@ -16,6 +17,9 @@ SetBatchLines, -1
 
 ; "%appdata%\TrenchBroom\Preferences.json" would work with #NoEnv disabled, but not as a variable
 TBpreferences := % A_AppData . "\TrenchBroom\Preferences.json"
+
+launchKey = F11
+compileKey = F12
 
 if WinExist("ahk_exe TrenchBroom.exe")
 {
@@ -48,13 +52,18 @@ if WinExist("ahk_exe TrenchBroom.exe")
 	Numpad3:: ShiftClick()
 
 	; for debugging this script
-	^p:: PixelColorUnderMouse()
+	#!p:: PixelColorUnderMouse()
 
 	; {techdc
 	!t:: techdc.WriteWord()					; paste big
 	^!t:: techdc.WriteWord(false)			; big
 	+!t:: techdc.WriteWord(,false)			; paste small
 	+^!t:: techdc.WriteWord(false,false)	; small
+
+	; path_cornera
+	^!p:: PathCorner.Scratch()
+	!p:: PathCorner.Iterate()
+	!+p:: PathCorner.Iterate(true)
 
 	; rename entities
 	; https://www.autohotkey.com/board/topic/70338-function-wait-s-for-a-numerical-keypress/
@@ -68,10 +77,10 @@ if WinExist("ahk_exe TrenchBroom.exe")
 	Return
 
 	; COMPILE
-	!C::
+	!c::
 		SendInput, ^{s}		; save
 		Sleep, 30
-		SendInput, {F12}	; Open COMPILE via Trenchbroom hotkey
+		SendInput, {%compileKey%}	; Open COMPILE via Trenchbroom hotkey
 		While !WinActive("Compile")
 			sleep 100
 		SendInput, {Left}
@@ -80,7 +89,7 @@ if WinExist("ahk_exe TrenchBroom.exe")
 	Return
 
 	; Launch game
-	!L:: LaunchI()
+	!l:: LaunchI()
 	!1:: Launch() ; COPPER LAUNCH
 	!2:: Launch(4) ; ALKALINE LAUNCH
 #IfWinActive
@@ -168,6 +177,7 @@ SendSleep(aInput, mod := "", amount := 1, aSleep := 50){
 }
 
 RenamePC(){
+	;SendInput, ^2
 	Input, userInput, L1 T6
 	if userInput is integer
 		Rename()
@@ -200,10 +210,11 @@ LaunchI(){
 }
 
 Launch(tabs:=0){
+	global launchKey
 	SendInput, {Escape} 	; Close COMPILE
 	While WinActive("Compile")
 		sleep 100
-	SendInput, {F11}	; Open LAUNCH via Trenchbroom hotkey
+	SendInput, {%launchKey%}	; Open LAUNCH via Trenchbroom hotkey
 	While !WinActive("Launch Engine")
 		sleep 100
 	if (tabs > 0){
