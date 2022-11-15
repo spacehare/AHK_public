@@ -43,7 +43,7 @@ as the script is right now, here's what they do
 | ------------ | ------------------------------------------------------- |
 | F2           | rename highlighted/selected value                |
 | shift F2     | for path_corners; press a number after this! renames selected entity value |
-| ctrl shift P | create example/template path_corner                     |
+| ctrl alt P | create example/template path_corner                     |
 | alt P        | iterate/create next path_corner                         |
 | alt shift P  | same as above, but loop to path_corner 0                |
 
