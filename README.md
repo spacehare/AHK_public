@@ -18,7 +18,7 @@ how to use
 4. edit keyboard shortcuts in Trenchbroom preferences ( View -> Preferences -> Keyboard )
    - Run > Launch Engine... to F11
    - Run > Compile Map... to F12
-   - or edit the .ahk script's functions to match
+   - or edit the .ahk script to match
 
 read the links below if you want to edit the hotkeys.
 as the script is right now, here's what they do
