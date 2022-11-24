@@ -91,7 +91,8 @@ if WinExist("ahk_exe TrenchBroom.exe")
 	; Launch game
 	!l:: LaunchI()
 	!1:: Launch() ; COPPER LAUNCH
-	!2:: Launch(4) ; ALKALINE LAUNCH
+	!2:: Launch(1) ; ALKALINE LAUNCH
+	!3:: Launch(2) ; AD LAUNCH
 #IfWinActive
 
 ;
@@ -199,27 +200,22 @@ Rename(){
 }
 
 LaunchI(){
-	Input, userInput, L1 T6
+	Input, userInput, L1 T3
+	if userInput is not Integer
+		return
 	userInput -= 1
-	if userInput > 0
-		userInput +=3
-	if userInput is Integer
-		Launch(userInput)
-	Else
-		Return
+	Launch(userInput)
 }
 
-Launch(tabs:=0){
-	global launchKey
-	SendInput, {Escape} 	; Close COMPILE
+Launch(engine := 0){
+	global launchKey ; Close COMPILE
+	SendInput, {Escape}
 	While WinActive("Compile")
 		sleep 100
-	SendInput, {%launchKey%}	; Open LAUNCH via Trenchbroom hotkey
+	SendInput, {%launchKey%} ; Open LAUNCH via Trenchbroom hotkey
 	While !WinActive("Launch Engine")
 		sleep 100
-	if (tabs > 0){
-		SendInput, {Tab %tabs%}
-		SendInput, {Down}
-	}
+	SendInput, {Tab 4}
+	SendInput, {Down %engine%}
 	SendInput, {Enter}
 }
