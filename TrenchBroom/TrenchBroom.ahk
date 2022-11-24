@@ -21,6 +21,8 @@ TBpreferences := % A_AppData . "\TrenchBroom\Preferences.json"
 launchKey = F11
 compileKey = F12
 
+lastEngine := 0
+
 if WinExist("ahk_exe TrenchBroom.exe")
 {
 	WinActivate, ahk_exe TrenchBroom.exe
@@ -55,10 +57,12 @@ if WinExist("ahk_exe TrenchBroom.exe")
 	#!p:: PixelColorUnderMouse()
 
 	; {techdc
-	!t:: techdc.WriteWord()					; paste big
-	^!t:: techdc.WriteWord(false)			; big
-	+!t:: techdc.WriteWord(,false)			; paste small
-	+^!t:: techdc.WriteWord(false,false)	; small
+	!m:: techdc.WriteWord()					; paste big
+	^!m:: techdc.WriteWord(false)			; big
+	+!m:: techdc.WriteWord(,false)			; paste small
+	+^!m:: techdc.WriteWord(false,false)	; small
+
+	^!t:: TriggerTexture()
 
 	; path_cornera
 	^!p:: PathCorner.Scratch()
@@ -90,9 +94,10 @@ if WinExist("ahk_exe TrenchBroom.exe")
 
 	; Launch game
 	!l:: LaunchI()
-	!1:: Launch() ; COPPER LAUNCH
+	!1:: Launch(0) ; COPPER LAUNCH
 	!2:: Launch(1) ; ALKALINE LAUNCH
 	!3:: Launch(2) ; AD LAUNCH
+	!`:: Launch()
 #IfWinActive
 
 ;
@@ -207,9 +212,14 @@ LaunchI(){
 	Launch(userInput)
 }
 
-Launch(engine := 0){
-	global launchKey ; Close COMPILE
-	SendInput, {Escape}
+Launch(engine := -1){
+	global lastEngine
+	global launchKey
+	if engine = -1
+		engine := lastEngine
+	else
+		lastEngine := engine
+	SendInput, {Escape} ; Close COMPILE
 	While WinActive("Compile")
 		sleep 100
 	SendInput, {%launchKey%} ; Open LAUNCH via Trenchbroom hotkey
@@ -218,4 +228,14 @@ Launch(engine := 0){
 	SendInput, {Tab 4}
 	SendInput, {Down %engine%}
 	SendInput, {Enter}
+}
+
+TriggerTexture(){
+	clipboard =
+	SendInput, ^c
+	clipwait
+	reg := "(?:.+\)) \K[^\s]+"
+	clipboard := RegExReplace(clipboard, reg, "trigger")
+	SendInput, {x}
+	SendInput, ^!v
 }

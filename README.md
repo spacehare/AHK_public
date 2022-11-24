@@ -32,32 +32,34 @@ as the script is right now, here's what they do
 
 |                  |                  |
 | ---------------- | ---------------- |
-| alt t            | paste - large    |
-| ctrl alt t       | no paste - large |
-| shift alt t      | paste - small    |
-| shift ctrl alt t | no paste - small |
+| alt m            | paste - large    |
+| ctrl alt m       | no paste - large |
+| shift alt m      | paste - small    |
+| shift ctrl alt m | no paste - small |
 
 **Rename, and path_corner stuff**
 
-|              |                                                         |
-| ------------ | ------------------------------------------------------- |
-| F2           | rename highlighted/selected value                |
-| shift F2     | for path_corners; press a number after this! renames selected entity value |
-| ctrl alt P | create example/template path_corner                     |
-| alt P        | iterate/create next path_corner from selected path_corner                         |
-| alt shift P  | same as above, but loop to path_corner 0                |
+|             |                                                                            |
+| ----------- | -------------------------------------------------------------------------- |
+| F2          | rename highlighted/selected value                                          |
+| shift F2    | for path_corners; press a number after this! renames selected entity value |
+| ctrl alt P  | create example/template path_corner                                        |
+| alt P       | iterate/create next path_corner from selected path_corner                  |
+| alt shift P | same as above, but loop to path_corner 0                                   |
 
 **whatever else**
 
-|         |                                                                    |                                                                               |
-| ------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| F4      | search bar                                                         |                                                                               |
-| alt C   | compile (set to F12 in TrenchBroom)                                |                                                                               |
-| alt L   | launch (set to F11 in TrenchBroom)                                 | type an integer (corresponding to the engine order) after hitting the hotkey  |
-| alt 1   | launch first engine                                                |                                                                               |
-| alt 2   | launch second engine                                               | you can add more in the script trivially with something like `!3:: Launch(5)` |
-| alt 0   | open TrenchBroom preferences in Notepad++, falling back to Notepad |
-| win End | exit script                                                        |
+|            |                                                                    |                                                                               |
+| ---------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| F4         | search bar                                                         |                                                                               |
+| alt C      | compile (set to F12 in TrenchBroom)                                |                                                                               |
+| alt L      | launch (set to F11 in TrenchBroom)                                 | type an integer (corresponding to the engine order) after hitting the hotkey  |
+| alt `      | launch previously launched engine                                  |                                                                               |
+| alt 1      | launch first engine                                                |                                                                               |
+| alt 2      | launch second engine                                               | you can add more in the script trivially with something like `!4:: Launch(3)` |
+| alt 0      | open TrenchBroom preferences in Notepad++, falling back to Notepad |                                                                               |
+| ctrl alt t | replace texture with Trigger                                       |                                                                               |
+| win End    | exit script                                                        |                                                                               |
 
 https://www.autohotkey.com/docs  
 https://www.autohotkey.com/docs/Hotkeys.htm  
